@@ -1,3 +1,3 @@
 Visual Arts Research Methods
 
-Brief lesson and survey about recursion using a Sierpinski Triangle example.
+Brief lesson and survey about recursion, using a Sierpinski Triangle visualization.
