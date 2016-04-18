@@ -1,0 +1,259 @@
+@mixin vertical-align($position: relative) {
+	position: $position;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+
+#introScreen, #triangleScreen, #testScreen, #right1, #right2, #right3, #right4, #right5, #right6 {
+	// @extend .scene_element_long;
+	// @extend .scene_element--fadein;
+	transition: all 800ms;
+}
+
+// #p1n2, #p2n3, #p3n4, #p4n5, #p5n6, #p6n7 {
+// 	display: none;
+// }
+
+#introScreen {
+	// text-align: center;
+	// background-image: url("../img/mandelbrot-spire.jpg");
+	// background-size: cover;
+	// height: 100vh;
+	// color: white;
+
+	// @include vertical-align();
+	flex-direction: column;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    transition: all 400ms;
+}
+
+.hidden {
+	height: 0 !important;
+	opacity: 0 !important;
+	// visibility: hidden;
+	overflow: hidden !important;
+}
+
+
+// Idea: make canvas huge in pixels, but shrink in css, then transform to new width size, then redraw canvas back to its original state
+// over and over
+
+#right {
+	// background: #eee;
+	// height: 100%;
+	// padding-top: 1em;
+	min-height: 100vh;
+
+	flex-direction: column;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+	// div {
+		// @include vertical-align();
+	// }
+
+}
+
+.next {
+	width: 5em;
+}
+
+.next, .prev {
+	// margin-top: 2em;
+}
+
+.nextPrevNav {
+	margin-top: 2em;
+	// position: fixed;
+	// bottom: 0;
+	// right: 0;
+}
+
+
+#right7 {
+	width: 100%;
+	padding-top: 1em;
+}
+
+form {
+	// width: 100%;
+	margin-top: 2em;
+}
+
+textarea {
+	height: 5em;
+}
+
+#formSubmit {
+	margin-top: 1em;
+	width: 6em;
+	text-align: center;
+}
+
+
+/*
+ * Keyframes
+ */
+
+ @keyframes fadeIn {
+ 	0% {
+ 		opacity: 0;
+ 	}
+
+ 	100% {
+ 		opacity: 1;
+ 	}
+ }
+
+ @keyframes fadeInUp {
+ 	0% {
+ 		opacity: 0;
+ 		transform: translate3d(0, 100%, 0);
+ 	}
+
+ 	100% {
+ 		opacity: 1;
+ 		transform: none;
+ 	}
+ }
+
+ @keyframes fadeInDown {
+ 	0% {
+ 		opacity: 0;
+ 		transform: translate3d(0, -100%, 0);
+ 	}
+
+ 	100% {
+ 		opacity: 1;
+ 		transform: none;
+ 	}
+ }
+
+ @keyframes fadeInRight {
+ 	0% {
+ 		opacity: 0;
+ 		transform: translate3d(100%, 0, 0);
+ 	}
+
+ 	100% {
+ 		opacity: 1;
+ 		transform: none;
+ 	}
+ }
+
+ @keyframes fadeInLeft {
+ 	0% {
+ 		opacity: 0;
+ 		transform: translate3d(-100%, 0, 0);
+ 	}
+
+ 	100% {
+ 		opacity: 1;
+ 		transform: none;
+ 	}
+ }
+
+/*
+ * CSS Page Transitions
+ * Don't forget to add vendor prefixes!
+ */
+ .m-scene {
+ 	.scene_element {
+ 		animation-duration: .5s;
+ 		transition-timing-function: ease-in;
+ 		animation-fill-mode: both;
+ 	}
+
+ 	.scene_element_long {
+ 		animation-duration: 1s;
+ 		transition-timing-function: ease-in;
+ 		animation-fill-mode: both;
+ 	}
+
+ 	.scene_element--fadein {
+ 		animation-name: fadeIn;
+ 	}
+
+ 	.scene_element--fadeinup {
+ 		animation-name: fadeInUp;
+ 	}
+
+ 	.scene_element--fadeinright {
+ 		animation-name: fadeInRight;
+ 	}
+
+ 	.scene_element--fadeinleft {
+ 		animation-name: fadeInLeft;
+ 	}
+ }
+
+
+ .ball-chasing .loader {
+
+&.hide {
+	opacity: 0;
+}
+
+	transition: all 1s ease;
+	margin-top: -62px;
+	margin-left: 40px;
+	// display: none;
+	opacity: 1;
+
+  width: 40px;
+  height: 40px;
+  -webkit-animation: rotate 2s linear infinite;
+          animation: rotate 2s linear infinite;
+}
+.ball-chasing .loader .ball-1, .ball-chasing .loader .ball-2 {
+  position: absolute;
+  top: 0;
+  width: 60%;
+  height: 60%;
+  border-radius: 50%;
+  background-color: #fff;
+  // background-color: #eee;
+  -webkit-animation: chasingBallBounce 2s linear infinite;
+          animation: chasingBallBounce 2s linear infinite;
+}
+.ball-chasing .loader .ball-2 {
+  top: auto;
+  bottom: 0;
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes chasingBallBounce {
+  50% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}
+@keyframes chasingBallBounce {
+  50% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+}

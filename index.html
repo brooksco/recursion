@@ -1,0 +1,222 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foundation for Sites</title>
+  <link rel="stylesheet" href="css/app.css">
+  <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+</head>
+<body class="m-scene">
+
+
+  <div id="introScreen">
+    <div class="row">
+      <div class="small-8 small-centered columns">
+        <h2>Recursion</h2>
+        <p>Recursion is the process of progressively reducing a problem into easier to solve versions of itself.</p>
+
+        <p>Recursion is a core concept in computer science, used to solve all kinds of challenges, from efficiently sorting lists to drawing the branches of a tree. It is about breaking large problems into a sequence of progressively smaller ones, until you reach one that you can solve.</p>
+        <p>This lesson is brief and should take ~10 minutes to complete.</p>
+        <button id="next1" type="button" class="button next">Begin</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="triangleScreen" class="hidden">
+    <div class="row">
+      <div id="left" class="small-6 columns">
+        <canvas id="sierpinskiCanvas" width="800px" height="800px"></canvas>
+      </div>
+      <div id="right" class="small-6 columns">
+
+        <div id="right1" class="hidden">
+          <h3>The Sierpinski triangle</h3>
+          <p>You may recognize this as a <em>fractal</em>, a repeating pattern that displays a version of itself at any scale.
+            Fractals like the Sierpinski triangle can be repeated infinitely, each piece a part of a conceptually larger whole.</p>
+
+            <p>The Sierpinski triangle is an equilateral triangle that is subdivided <em>recursively</em> into smaller equilateral triangles. Equilateral meaning that all three sides of the triangle are of the same length.</p>
+
+            <p>You could continue to draw this shape by continuing in larger, or smaller scales.</p>
+
+            <nav id="p1n2" class="nextPrevNav">
+              <button id="prev1" type="button" class="button hollow prev">Previous</button>
+              <button id="next2" type="button" class="button next">Next</button>
+            </nav>
+          </div>
+
+
+          <div id="right2" class="hidden">
+            <h3>An algorithm</h3>
+            <p>Thinking about how we might explain how to draw a Sierpinski triangle to someone, we might say something like:</p>
+            <ul>
+              <li>draw a triangle of equal sides, then...</li>
+              <li>divide that triangle into four smaller ones, then...</li>
+              <li>divide each of those smaller triangles into yet four more triangles, then...</li>
+              <li>divide each of THOSE smaller triangles into yet four more triangles….etc.</li>
+            </ul>
+
+            <p>In that sequence, it’s only the first step that stands out from the subsequent ones. Either we’re telling the person to draw a triangle, or we’re telling them to divide a triangle. Each step requires more dividing than the step before it, and it isn’t really practical to do follow this sequences more than a handful of levels “deep”.</p>
+
+            <p>Recursion is a reflection of this kind of explanation, just a little flipped around.</p>
+
+            <nav id="p2n3" class="nextPrevNav">
+              <button id="prev2" type="button" class="button hollow prev">Previous</button>
+              <button id="next3" type="button" class="button next">Next</button>
+            </nav>
+          </div>
+
+
+          <div id="right3" class="hidden">
+            <h3>Going up or down</h3>
+
+            <p>With our Sierpinski triangle instructions, we could also go the other direction. Instead of starting by drawing a triangle, we could decide how “deep” we want to go. That is, how many sets of smaller and smaller triangles we want to draw. We could look at our paper and work our way up, drawing the smallest triangles first, following by the larger ones in sequence, until we’ve completed the process.</p>
+
+            <p>Regardless of if we’re moving in this sort of “down” or “up” way, we end up with the correct drawing. We can start with the largest, smallest set of the triangles, or we can start with the singular largest triangle. Either way we want to think about it, we end up with a Sierpinski triangle. It’s just a matter of how we broke up the problem.</p>
+
+            <nav id="p3n4" class="nextPrevNav">
+              <button id="prev3" type="button" class="button hollow prev">Previous</button>
+              <button id="next4" type="button" class="button next">Next</button>
+            </nav>
+          </div>
+
+          <div id="right4" class="hidden">
+            <h3>From larger to smaller</h3>
+            <p>Recursion is the process of progressively reducing a problem into easier to solve versions of itself.</p>
+
+            <p>With our Sierpinski triangle and a blank page, the problem is at it’s largest. We might have to create tens, hundreds, or even thousands of triangles, depending on how deep we want to go. But because we know the rules of this triangle, this is doable, even if it’s incredibly tedious. <em>Recursively</em>, we could say we’re solving the problem by thinking of smaller versions of the problem. We don’t have to know where every triangle goes on first glance at the page, because we can progressively work through each layer, division of triangle after division of triangle, adding smaller and smaller shapes.</p>
+
+            <nav id="p4n5" class="nextPrevNav">
+              <button id="prev4" type="button" class="button hollow prev">Previous</button>
+              <button id="next5" type="button" class="button next">Next</button>
+            </nav>
+          </div>
+
+          <div id="right5" class="hidden">
+            <h3>Going all the way and coming back up</h3>
+            <p>Recursion as a computational problem solving technique is directly related to this kind of process. It is splitting the problem into a thousand smaller ones, until the only step that remains is to draw a triangle…then take a step back and draw another one, again, and again, and again. Larger, and larger.</p>
+
+            <p>Recursion is looking for the base, the core of the problem, by splitting all the problems leading up to it. It is seeing the largest triangle, splitting it into smaller triangles, and splitting those over and over until there’s no more splitting to be done. Once there, we run backwards, filling in the larger problems, the larger triangles, with the smaller ones that came before them.</p>
+
+            <nav id="p5n6" class="nextPrevNav">
+              <button id="prev5" type="button" class="button hollow prev">Previous</button>
+              <button id="next6" type="button" class="button next">Next</button>
+            </nav>
+          </div>
+
+          <div id="right6" class="hidden">
+            <h3>That's it</h3>
+            <p>That step of running "backwards" is probably a little different than what we did in our heads. The truly recursive version of drawing the Sierpinski triangle did not do <em>anything</em> until it broke the problem all the way down to what is, for us, usually the last step: drawing the smallest triangle in our set.</p>
+
+            <p>But conceptually, that's all recursion is. Solving a problem by solving the smallest problems, and moving <em>backwards</em> up the chain. We can add more technical words, like "base case" or "self-same sets", but fundamentally all the concepts are here.</p>
+
+            <p><strong>Now just a few questions...</strong></p>
+            <nav id="p6n7" class="nextPrevNav">
+              <button id="prev6" type="button" class="button hollow prev">Previous</button>
+              <button id="next7" type="button" class="button next">Next</button>
+            </nav>
+          </div>
+
+          <div id="right7" class="hidden">
+
+            <h3>Follow up questions</h3>
+
+            <form id="responseForm">
+             <div class="row">
+              <div class="small-12 columns">
+
+                <label>
+                  In your own words, how would you explain the concept of recursion to someone else?
+                  <textarea id="explainRecursion" placeholder=""></textarea>
+                </label>
+                <br>
+
+                <label>
+                  If you had an uncut pizza, and you wanted to cut smaller slices, how might your process reflect a recursive one?
+                  <textarea id="explainPizza" placeholder=""></textarea>
+                </label>
+                <br>
+
+                <label>
+                  Did you find the image of the Sierpinski triangle helpful for understanding recursion? Why or why not?
+                  <textarea id="explainSierpinski" placeholder=""></textarea>
+                </label>
+                <br>
+
+                <fieldset>
+                  <legend>How would you describe your previous knowledge of computers science?</legend>
+                  <input type="radio" name="csKnowledge" value="Extensive" id="pokemonRed" required><label for="pokemonRed">Extensive</label>
+                  <input type="radio" name="csKnowledge" value="Some" id="pokemonBlue"><label for="pokemonBlue">Some</label>
+                  <input type="radio" name="csKnowledge" value="Basically none" id="pokemonYellow"><label for="pokemonYellow">Basically none</label>
+                </fieldset>
+                <br>
+
+                <label>
+                  Did this exercise change how you view computer science? If so, how?
+                  <textarea id="explainCS" placeholder=""></textarea>
+                </label>
+                <br>
+
+                <label>What is your age?
+                  <input id="age" type="number" placeholder="">
+                </label>
+                <br>
+
+                <label>
+                  Any other thoughts or comments?
+                  <textarea id="thoughtsComments" placeholder=""></textarea>
+                </label>
+                <br>
+
+              </div></div>
+
+              <input id="formSubmit" type="submit" value="Submit" class="button large success">
+
+              <div class="loader-container ball-chasing">
+                <div class="loader hide">
+                  <div class="ball-1"></div>
+                  <div class="ball-2"></div>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div id="testScreen" class="hidden">
+        <div class="row">
+          <div class="small-12 columns">
+            <h2>Recursion</h2>
+            <p>Let's take the real world 'operation' of cutting up a pizza. You've taken the pizza out of the oven and in order to serve it up you have to cut it in half, then cut those halves in half, then again cut those resultant halves in half.
+
+              The operation of cutting the pizza you performing again and again until you've got the result you want (the number of slices). And for arguments sake let's say that an uncut pizza is a slice itself.
+            </p>
+            <button id="introNext" type="button" class="button large next">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Thanks modal -->
+      <div class="reveal small" id="thanksModal" data-reveal data-close-on-click="true">
+        <h2>Thanks!</h2>
+        <p>You're contribution is very appreciated.</p>
+
+        <button class="close-button" data-close aria-label="Close reveal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <!-- <canvas id="sierpinskiCanvas2" width="1200px" height="1200px"></canvas> -->
+
+      <script src="js/p5.min.js"></script>
+      <script language="javascript" type="text/javascript" src="js/sketch.js"></script>
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/what-input/what-input.js"></script>
+      <script src="bower_components/foundation-sites/dist/foundation.js"></script>
+      <script src="js/app.js"></script>
+    </body>
+    </html>
