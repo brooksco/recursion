@@ -99,6 +99,30 @@ textarea {
 	text-align: center;
 }
 
+// Footer
+
+footer {
+	z-index: 1000;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: .75em 1em;
+    font-size: .8rem;
+
+    a {
+    	color: #555;
+    	opacity: .5;
+
+    	&:hover {
+    		color: #555;
+    		opacity: .75;
+    	}
+    
+    }
+}
+
+//
+
 
 /*
  * Keyframes
